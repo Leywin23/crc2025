@@ -6,10 +6,14 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       # figure out how to clone the repo in pipeline runner
+      - run: git clone https://github.com/Leywin23/crc2025.git
       - run: echo "this should clone repo"
       # figure out how to install python in required version
+      - run: apt install python3 python3-pip -y
       - run: echo "this should install python in version that is needed for our app"
       # figure out how to install requirements for our project
+      - run: pip install -r requirements.txt
       - run: echo "this should install all needed packages on runner"
       # figure out how to run tests to see if the server works
+      - run: test_main.py
       - run: echo "this should launch test and fail the pipeline if tests fail"
